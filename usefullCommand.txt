@@ -1,0 +1,58 @@
+python3 --version
+pip --version
+java -version
+# command to check if XCode Command Line Tools installed
+xcode-select --print-path
+# or command to install if XCode Command Line Tools
+xcode-select --install
+
+# install Homebrew
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+rm -rf $(brew --repo homebrew/core)
+brew tap homebrew/core
+brew tap homebrew/cask-versions
+brew update
+
+
+# Install pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
+#install Java
+java -version
+brew install --cask adoptopenjdk8
+echo 'export PATH="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+
+#git update forked repor by orgin
+git remote add upstream https://github.com/atlassian/dc-app-performance-toolkit.git
+git fetch upstream
+git checkout master
+git rebase upstream/master
+git push -f origin master
+
+#install chrome driver
+https://chromedriver.chromium.org/downloads
+check chrome driver version from  app/jira.yaml
+mv ~/Downloads/chromedriver /usr/local/bin
+source ~/.zshrc
+
+#Prepare dctool env
+export PATH="/Users/mh/Library/Python/3.8/bin:/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:$PATH"
+source ~/.zshrc
+pip3 install virtualenv
+virtualenv venv -p /usr/local/bin/python3
+source venv/bin/activate
+pip install -r requirements.txt
+
+#jmeter for jsm
+Rindex AWS instance
+edit jsm.yaml with the needed params
+bzt jsm.yml
+python util/jmeter/start_jmeter_ui.py --app jsm --type agents
+python util/jmeter/start_jmeter_ui.py --app jsm --type customers 
+
+
+
+#things to know
+you should run bzt atleast once to install all the needed requirements
+dont run both jira.yaml and jsm.yaml on the same instance this will broke users
