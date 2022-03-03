@@ -66,6 +66,9 @@ Refer to `app/selenium_ui/jsm/modules_agents.py` for examples.
 # def test_1_selenium_agent_custom_action(jsm_webdriver, jsm_datasets, jsm_screen_shots):
 #     extension_ui_agents.app_specific_action(jsm_webdriver, jsm_datasets)
 
+def test_1_selenium_agent_custom_action_log_level_web_action(jsm_webdriver, jsm_datasets, jsm_screen_shots):
+    extension_ui_agents.app_specific_action_log_level_web_action(jsm_webdriver, jsm_datasets)
+
 
 # this action should be the last one
 def test_2_selenium_agent_z_logout(jsm_webdriver, jsm_datasets, jsm_screen_shots):

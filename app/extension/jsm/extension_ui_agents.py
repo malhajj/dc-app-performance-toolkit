@@ -31,14 +31,17 @@ def app_specific_action(webdriver, datasets):
     # measure()
 
     @print_timing("selenium_agent_app_custom_action")
-    def measure():
+    def app_specific_action_log_level_web_action(webdriver, datasets):
+        page = BasePage(webdriver)
 
-        @print_timing("selenium_agent_app_custom_action:view_request")
-        def sub_measure():
-            page.go_to_url(f"{JSM_SETTINGS.server_url}/browse/{issue_key}")
-            # Wait for summary field visible
-            page.wait_until_visible((By.ID, "summary-val"))
-            # Wait for you app-specific UI element by ID selector
-            page.wait_until_visible((By.ID, "ID_OF_YOUR_APP_SPECIFIC_UI_ELEMENT"))
-        sub_measure()
-    measure()
+        @print_timing("selenium_agent_app_custom_action_log_level_web_action")
+        def measure():
+            @print_timing("selenium_agent_app_custom_action:log_level_web_action")
+            def sub_measure():
+                page.go_to_url(
+                    f"{JSM_SETTINGS.server_url}/secure/LogLevel.jspa")
+                page.wait_until_visible((By.ID, "log-level-main-panel"))
+
+            sub_measure()
+
+        measure()
