@@ -56,3 +56,23 @@ python util/jmeter/start_jmeter_ui.py --app jsm --type customers
 #things to know
 you should run bzt atleast once to install all the needed requirements
 dont run both jira.yaml and jsm.yaml on the same instance this will broke users
+
+#switch between branches:
+git checkout non-existing-branch
+
+docker pull atlassian/dcapt
+docker run --shm-size=4g -v "$PWD:/dc-app-performance-toolkit" atlassian/dcapt jsm.yml
+
+wget https://raw.githubusercontent.com/atlassian/dc-app-performance-toolkit/master/app/util/jira/index-sync.sh && chmod +x index-sync.sh
+./index-sync.sh 2>&1 | tee -a index-sync.log
+
+jsmobileNode#1  jsmobileNode#2  jsmobileNode#4
+ubuntu@ip-172-31-23-7:~/hajj/dc-app-performance-toolkit/app/results/jsm$ pwd
+/home/ubuntu/hajj/dc-app-performance-toolkit/app/results/jsm/jsmobileNode#1
+
+ssh -i "Jira.pem" ubuntu@ec2-35-164-197-208.us-west-2.compute.amazonaws.com
+
+#Security check
+https://developer.atlassian.com/platform/marketplace/dc-apps-security-scanner/#security-scanning-in-dc-app-approval-process
+brew install dependency-check
+dependency-check -s app_file_name.jar
