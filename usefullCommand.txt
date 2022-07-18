@@ -58,8 +58,11 @@ you should run bzt atleast once to install all the needed requirements
 dont run both jira.yaml and jsm.yaml on the same instance this will broke users
 
 #switch between branches:
+git fetch origin
 git checkout non-existing-branch
 
+
+#performance test
 docker pull atlassian/dcapt
 docker run --shm-size=4g -v "$PWD:/dc-app-performance-toolkit" atlassian/dcapt jsm.yml
 
@@ -68,7 +71,7 @@ wget https://raw.githubusercontent.com/atlassian/dc-app-performance-toolkit/mast
 
 jsmobileNode#1  jsmobileNode#2  jsmobileNode#4
 ubuntu@ip-172-31-23-7:~/hajj/dc-app-performance-toolkit/app/results/jsm$ pwd
-/home/ubuntu/hajj/dc-app-performance-toolkit/app/results/jsm/jsmobileNode#1
+/home/ubuntu/hajj/dc-app-performance-toolkit/app/results/jsm/twitterNode#1
 
 ssh -i "Jira.pem" ubuntu@ec2-35-164-197-208.us-west-2.compute.amazonaws.com
 
@@ -76,3 +79,6 @@ ssh -i "Jira.pem" ubuntu@ec2-35-164-197-208.us-west-2.compute.amazonaws.com
 https://developer.atlassian.com/platform/marketplace/dc-apps-security-scanner/#security-scanning-in-dc-app-approval-process
 brew install dependency-check
 dependency-check -s app_file_name.jar
+
+
+jsmobileNode#1  jsmobileNode#2  jsmobileNode#4  twitterNode#1  twitterNode#2  twitterNode#4  twitterWithoutAddon  withJSMobile  withTwitter  withoutAddon
