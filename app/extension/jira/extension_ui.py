@@ -8,7 +8,7 @@ from selenium_ui.jira.pages.pages import Login
 from util.conf import JIRA_SETTINGS
 
 
-def app_specific_action(webdriver, datasets):
+def app_specific_action_mobile_settings(webdriver, datasets):
     page = BasePage(webdriver)
     if datasets['custom_issues']:
         issue_key = datasets['custom_issue_key']
@@ -32,13 +32,38 @@ def app_specific_action(webdriver, datasets):
     #     app_specific_user_login(username='admin', password='admin')
     # measure()
 
-    @print_timing("selenium_app_custom_action")
+    @print_timing("selenium_app_custom_action_mobile_settings")
     def measure():
-        @print_timing("selenium_app_custom_action:view_issue")
-        def sub_measure():
-            page.go_to_url(f"{JIRA_SETTINGS.server_url}/browse/{issue_key}")
-            page.wait_until_visible((By.ID, "summary-val"))  # Wait for summary field visible
-            page.wait_until_visible((By.ID, "ID_OF_YOUR_APP_SPECIFIC_UI_ELEMENT"))  # Wait for you app-specific UI element by ID selector
-        sub_measure()
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/MobileSettingsWebActionSupport.jspa")
+        page.wait_until_visible((By.ID, "notificationStatusOn"))  # Wait for you app-specific UI element by ID selector
     measure()
 
+
+def app_specific_action_general_config(webdriver, datasets):
+    page = BasePage(webdriver)
+
+    @print_timing("selenium_app_custom_action_general_config")
+    def measure():
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/jiraMobile/generalConfig")
+        page.wait_until_visible((By.ID, "selectCountry"))  # Wait for you app-specific UI element by ID selector
+    measure()
+
+
+def app_specific_action_mobile_usage_report_action(webdriver, datasets):
+    page = BasePage(webdriver)
+
+    @print_timing("selenium_app_custom_action_mobile_usage_report_action")
+    def measure():
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/MobileUsageReportAction.jspa")
+        page.wait_until_visible((By.ID, "usage-report-container"))  # Wait for you app-specific UI element by ID selector
+    measure()
+
+
+def app_specific_action_notification_schema_web_action(webdriver, datasets):
+    page = BasePage(webdriver)
+
+    @print_timing("selenium_app_custom_action_mfj_notification_schema_web_action")
+    def measure():
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/MFJNotificationSchemaWebAction.jspa?projectKey=KAN")
+        page.wait_until_visible((By.ID, "default-notification-schema-form"))  # Wait for you app-specific UI element by ID selector
+    measure()

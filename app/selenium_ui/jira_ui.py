@@ -65,7 +65,21 @@ Refer to `app/selenium_ui/jira/modules.py` for examples.
 # def test_1_selenium_custom_action(jira_webdriver, jira_datasets, jira_screen_shots):
 #     extension_ui.app_specific_action(jira_webdriver, jira_datasets)
 
+def test_1_selenium_custom_action_mobile_settings(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_mobile_settings(jira_webdriver, jira_datasets)
 
+
+def test_1_selenium_custom_action_general_config(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_general_config(jira_webdriver, jira_datasets)
+
+
+def test_1_selenium_custom_action_mobile_usage_report_action(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_mobile_usage_report_action(jira_webdriver, jira_datasets)
+
+
+def test_1_selenium_custom_action_notification_schema_web_action(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_notification_schema_web_action(jira_webdriver, jira_datasets)
+    
 # this action should be the last one
 def test_2_selenium_z_log_out(jira_webdriver, jira_datasets, jira_screen_shots):
     modules.log_out(jira_webdriver, jira_datasets)
