@@ -9331,7 +9331,7 @@ if (response_data.name != vars.get(&quot;app_specific_username&quot;)) {
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
                 <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="assertion after GET request" enabled="true">
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="assertion after GET request" enabled="false">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="261585815">asserttion string</stringProp>
                   </collectionProp>
