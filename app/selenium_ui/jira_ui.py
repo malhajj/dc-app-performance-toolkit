@@ -62,16 +62,12 @@ Refer to `app/selenium_ui/jira/modules.py` for examples.
 """
 
 
-def test_1_selenium_custom_action_otj_menu(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_otj_menu(jira_webdriver, jira_datasets)
+def test_1_selenium_custom_action_amj_extract_attachments_docs(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_amj_extract_attachments_docs(jira_webdriver, jira_datasets)
 
 
-def test_1_selenium_custom_action_otj_settings(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_otj_settings(jira_webdriver, jira_datasets)
-
-
-def test_1_selenium_custom_action_otj_language_config(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_otj_language_config(jira_webdriver, jira_datasets)
+def test_1_selenium_custom_action_amj_import_attachments(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_amj_import_attachments(jira_webdriver, jira_datasets)
 
 
 # this action should be the last one
