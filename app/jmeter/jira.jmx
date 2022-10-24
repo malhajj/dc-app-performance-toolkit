@@ -1077,6 +1077,10 @@ JMeterUtils.setProperty(&quot;c_AtlToken&quot; + user_counter, atl_token)
                       <stringProp name="Header.name">Accept</stringProp>
                       <stringProp name="Header.value">*/*</stringProp>
                     </elementProp>
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">X-Atlassian-Token</stringProp>
+                      <stringProp name="Header.value">no-check</stringProp>
+                    </elementProp>
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
@@ -6905,7 +6909,7 @@ if ( sleep_time &gt; 0 ) {
                     <collectionProp name="Arguments.arguments">
                       <elementProp name="" elementType="HTTPArgument">
                         <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                        <stringProp name="Argument.value">{&quot;id&quot;:&quot;com.pyxis.greenhopper.jira:project-sidebar-work-${x_project_plan}&quot;}&#xd;
+                        <stringProp name="Argument.value">{&quot;id&quot;:&quot;com.pyxis.greenhopper.jira:project-sidebar-work-kanban&quot;}&#xd;
 </stringProp>
                         <stringProp name="Argument.metadata">=</stringProp>
                       </elementProp>
@@ -7713,7 +7717,7 @@ if ( sleep_time &gt; 0 ) {
                     <collectionProp name="Arguments.arguments">
                       <elementProp name="" elementType="HTTPArgument">
                         <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                        <stringProp name="Argument.value">{&quot;id&quot;:&quot;com.pyxis.greenhopper.jira:project-sidebar-work-${x_project_plan}&quot;}&#xd;
+                        <stringProp name="Argument.value">{&quot;id&quot;:&quot;com.pyxis.greenhopper.jira:project-sidebar-work-scrum&quot;}&#xd;
 </stringProp>
                         <stringProp name="Argument.metadata">=</stringProp>
                       </elementProp>
@@ -8724,7 +8728,7 @@ if ( sleep_time &gt; 0 ) {
                     <collectionProp name="Arguments.arguments">
                       <elementProp name="" elementType="HTTPArgument">
                         <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                        <stringProp name="Argument.value">{&quot;id&quot;:&quot;com.pyxis.greenhopper.jira:project-sidebar-work-${x_project_plan}&quot;}&#xd;
+                        <stringProp name="Argument.value">{&quot;id&quot;:&quot;com.pyxis.greenhopper.jira:project-sidebar-work-scrum&quot;}&#xd;
 </stringProp>
                         <stringProp name="Argument.metadata">=</stringProp>
                       </elementProp>
@@ -9289,12 +9293,12 @@ if (response_data.name != vars.get(&quot;app_specific_username&quot;)) {
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="jmeter_app_specific_action_checkLicense" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="jmeter_app_specific_action" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET plugins/servlet/com.infosysta.plugins.licensing.license/license" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /app/get_endpoing" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -9302,7 +9306,7 @@ if (response_data.name != vars.get(&quot;app_specific_username&quot;)) {
                 <stringProp name="HTTPSampler.port"></stringProp>
                 <stringProp name="HTTPSampler.protocol"></stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${application.postfix}/plugins/servlet/com.infosysta.plugins.licensing.license/license</stringProp>
+                <stringProp name="HTTPSampler.path">${application.postfix}/app/get_endpoint</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -9313,7 +9317,7 @@ if (response_data.name != vars.get(&quot;app_specific_username&quot;)) {
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
               <hashTree>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="app_id" enabled="false">
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="app_id" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">app_id</stringProp>
                   <stringProp name="RegexExtractor.regex">&quot;id&quot;:&quot;(.+?)&quot;</stringProp>
@@ -9322,7 +9326,7 @@ if (response_data.name != vars.get(&quot;app_specific_username&quot;)) {
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
                 <hashTree/>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="app_token" enabled="false">
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="app_token" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">app_token</stringProp>
                   <stringProp name="RegexExtractor.regex">&quot;token&quot;:&quot;(.+?)&quot;</stringProp>
@@ -9331,7 +9335,7 @@ if (response_data.name != vars.get(&quot;app_specific_username&quot;)) {
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
                 <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="assertion after GET request" enabled="false">
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="assertion after GET request" enabled="true">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="261585815">asserttion string</stringProp>
                   </collectionProp>
@@ -9342,7 +9346,7 @@ if (response_data.name != vars.get(&quot;app_specific_username&quot;)) {
                 </ResponseAssertion>
                 <hashTree/>
               </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /app/post_endpoing" enabled="false">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /app/post_endpoing" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="id" elementType="HTTPArgument">
@@ -9388,7 +9392,7 @@ if (response_data.name != vars.get(&quot;app_specific_username&quot;)) {
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="login_as_default_user_if_specific_user_was_loggedin " enabled="false">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="login_as_default_user_if_specific_user_was_loggedin " enabled="true">
               <stringProp name="IfController.condition">${run_as_specific_user}</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
@@ -9583,7 +9587,7 @@ if ( sleep_time &gt; 0 ) {
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>

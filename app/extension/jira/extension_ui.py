@@ -26,7 +26,7 @@ def app_specific_action_amj_import_attachments(webdriver, datasets):
         app_specific_user_login(username='admin', password='admin')
     measure()
 
-    @print_timing("selenium_app_custom_action_otj_language_config")
+    @print_timing("selenium_app_custom_action_amj_import_attachments")
     def measure():
         page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/jam/jamSelectProjects")
         page.wait_until_visible((By.ID, "importProjectsButton"))
@@ -55,7 +55,7 @@ def app_specific_action_amj_extract_attachments_docs(webdriver, datasets):
         app_specific_user_login(username='admin', password='admin')
     measure()
 
-    @print_timing("selenium_app_custom_action_otj_menu")
+    @print_timing("selenium_app_custom_action_amj_extract_attachments_doc")
     def measure():
         page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/jam")
         page.wait_until_visible((By.ID, "backupDirectory"))
