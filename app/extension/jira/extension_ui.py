@@ -31,5 +31,5 @@ def app_specific_action_afj_test1(webdriver, datasets):
     @print_timing("app_specific_action_afj_test1")
     def measure():
         page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/afj/portalLangaugeBuilder")
-        page.wait_until_visible((By.ID, "portal-language-table"))
+        page.wait_until_visible((By.ID, "portal-language-link"))
     measure()
