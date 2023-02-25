@@ -6,7 +6,7 @@ from selenium_ui.conftest import print_timing
 from util.conf import JIRA_SETTINGS
 from selenium_ui.jira.pages.pages import Login
 
-def app_specific_action_js_mobile_service_management_portal_branded_test1(webdriver, datasets):
+def app_specific_action_js_mobile_service_management_portal_test1(webdriver, datasets):
     page = BasePage(webdriver)
 
     # To run action as specific user uncomment code bellow.
@@ -28,13 +28,13 @@ def app_specific_action_js_mobile_service_management_portal_branded_test1(webdri
         app_specific_user_login(username='admin', password='admin')
     measure()
 
-    @print_timing("app_specific_action_js_mobile_service_management_portal_branded_test1")
+    @print_timing("app_specific_action_js_mobile_service_management_portal_test1")
     def measure():
         page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/NotificationsConfigWebActionSupport.jspa")
         page.wait_until_visible((By.ID, "mfjsdcp-admin-link"))
     measure()
 
-def app_specific_action_js_mobile_service_management_portal_branded_test2(webdriver, datasets):
+def app_specific_action_js_mobile_service_management_portal_test2(webdriver, datasets):
     page = BasePage(webdriver)
 
     # To run action as specific user uncomment code bellow.
@@ -56,7 +56,7 @@ def app_specific_action_js_mobile_service_management_portal_branded_test2(webdri
         app_specific_user_login(username='admin', password='admin')
     measure()
 
-    @print_timing("app_specific_action_js_mobile_service_management_portal_branded_test2")
+    @print_timing("app_specific_action_js_mobile_service_management_portal_test2")
     def measure():
         page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/NotificationsConfigWebActionSupport.jspa")
         page.wait_until_visible((By.ID, "project-filter"))
