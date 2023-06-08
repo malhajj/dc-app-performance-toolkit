@@ -61,14 +61,8 @@ Write your custom selenium scripts in `app/extension/jira/extension_ui.py`.
 Refer to `app/selenium_ui/jira/modules.py` for examples.
 """
 
-def test_1_selenium_custom_action_mfj_branded_test1(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_mfj_branded_test1(jira_webdriver, jira_datasets)
-
-def test_1_selenium_custom_action_mfj_branded_test2(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_mfj_branded_test2(jira_webdriver, jira_datasets)
-
-def test_1_selenium_custom_action_mfj_branded_test3(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_mfj_branded_test3(jira_webdriver, jira_datasets)
+def test_1_selenium_custom_action_license_details_test1(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_license_details_test1(jira_webdriver, jira_datasets)
 
 
 # this action should be the last one
