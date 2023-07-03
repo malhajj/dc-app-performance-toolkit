@@ -6,7 +6,7 @@ from selenium_ui.conftest import print_timing
 from util.conf import JIRA_SETTINGS
 from selenium_ui.jira.pages.pages import Login
 
-def app_specific_action_mfj_branded_test1(webdriver, datasets):
+def app_specific_action_mfj_test1(webdriver, datasets):
     page = BasePage(webdriver)
 
     # To run action as specific user uncomment code bellow.
@@ -28,13 +28,13 @@ def app_specific_action_mfj_branded_test1(webdriver, datasets):
         app_specific_user_login(username='admin', password='admin')
     measure()
 
-    @print_timing("app_specific_action_mfj_branded_test1")
+    @print_timing("app_specific_action_mfj_test1")
     def measure():
-        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/BrandedMobileSettingsWebActionSupport.jspa")
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/MobileSettingsWebActionSupport.jspa")
         page.wait_until_visible((By.ID, "notificationStatusOn"))
     measure()
 
-def app_specific_action_mfj_branded_test2(webdriver, datasets):
+def app_specific_action_mfj_test2(webdriver, datasets):
     page = BasePage(webdriver)
 
     # To run action as specific user uncomment code bellow.
@@ -56,13 +56,13 @@ def app_specific_action_mfj_branded_test2(webdriver, datasets):
         app_specific_user_login(username='admin', password='admin')
     measure()
 
-    @print_timing("app_specific_action_mfj_branded_test2")
+    @print_timing("app_specific_action_mfj_test2")
     def measure():
-        page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/mfjb/generalConfig")
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/mfj/generalConfig")
         page.wait_until_visible((By.ID, "s2id_intervalMaxValue"))
     measure()
 
-def app_specific_action_mfj_branded_test3(webdriver, datasets):
+def app_specific_action_mfj_test3(webdriver, datasets):
     page = BasePage(webdriver)
 
     # To run action as specific user uncomment code bellow.
@@ -84,8 +84,8 @@ def app_specific_action_mfj_branded_test3(webdriver, datasets):
         app_specific_user_login(username='admin', password='admin')
     measure()
 
-    @print_timing("app_specific_action_mfj_branded_test3")
+    @print_timing("app_specific_action_mfj_test3")
     def measure():
-        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/BrandedMobileUsageReportAction.jspa")
-        page.wait_until_visible((By.ID, "mfjb-usage-report-container"))
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/MobileUsageReportAction.jspa")
+        page.wait_until_visible((By.ID, "mfj-usage-report-container"))
     measure()
