@@ -31,7 +31,7 @@ def app_specific_action_mfj_test1(webdriver, datasets):
     @print_timing("app_specific_action_mfj_test1")
     def measure():
         page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/MobileSettingsWebActionSupport.jspa")
-        page.wait_until_visible((By.ID, "notificationStatusOn"))
+        page.wait_until_visible((By.ID, "tab-notification-status"))
     measure()
 
 def app_specific_action_mfj_test2(webdriver, datasets):
@@ -58,34 +58,6 @@ def app_specific_action_mfj_test2(webdriver, datasets):
 
     @print_timing("app_specific_action_mfj_test2")
     def measure():
-        page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/mfj/generalConfig")
-        page.wait_until_visible((By.ID, "s2id_intervalMaxValue"))
-    measure()
-
-def app_specific_action_mfj_test3(webdriver, datasets):
-    page = BasePage(webdriver)
-
-    # To run action as specific user uncomment code bellow.
-    # NOTE: If app_specific_action is running as specific user, make sure that app_specific_action is running
-    # just before test_2_selenium_z_log_out action
-    #
-    @print_timing("selenium_app_specific_user_login")
-    def measure():
-        def app_specific_user_login(username='admin', password='admin'):
-            login_page = Login(webdriver)
-            login_page.delete_all_cookies()
-            login_page.go_to()
-            login_page.set_credentials(username=username, password=password)
-            if login_page.is_first_login():
-                login_page.first_login_setup()
-            if login_page.is_first_login_second_page():
-                login_page.first_login_second_page_setup()
-            login_page.wait_for_page_loaded()
-        app_specific_user_login(username='admin', password='admin')
-    measure()
-
-    @print_timing("app_specific_action_mfj_test3")
-    def measure():
-        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/MobileUsageReportAction.jspa")
-        page.wait_until_visible((By.ID, "mfj-usage-report-container"))
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/jiraMobile/generalConfig")
+        page.wait_until_visible((By.ID, "jira-mobile-admin-general-config-link"))
     measure()
