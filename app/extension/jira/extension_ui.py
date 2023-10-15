@@ -10,7 +10,7 @@ def app_specific_action_notification_settings(webdriver, datasets):
     @print_timing("selenium_app_custom_action_notification_settings")
     def measure():
         page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/NotifierConfigWebActionSupport.jspa")
-        page.wait_until_visible((By.ID, "fcm-notifier-status-on"))
+        page.wait_until_visible((By.ID, "prefrences-page-link"))
     measure()
 
 
@@ -19,8 +19,8 @@ def app_specific_action_notification_scheme(webdriver, datasets):
 
     @print_timing("selenium_app_custom_action_notification_scheme")
     def measure():
-        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/NotificationSchemaWebAction.jspa?projectKey=KAN")
-        page.wait_until_visible((By.ID, "nfj-default-notification-schema"))
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/NotifierConfigWebActionSupport.jspa")
+        page.wait_until_visible((By.ID, "nfj-admin-page"))
     measure()
 
 
@@ -29,7 +29,7 @@ def app_specific_action_notifications_menu(webdriver, datasets):
 
     @print_timing("selenium_app_custom_action_notification_scheme")
     def measure():
-        page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/upm?source=side_nav_manage_addons")
-        page.wait_until_visible((By.ID, "nfj-notifications-dropdown-menu"))
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/NfjSchemesWebActionSupport.jspa")
+        page.wait_until_visible((By.ID, "nfj-schemes-page"))
     measure()
 
